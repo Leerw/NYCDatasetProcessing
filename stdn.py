@@ -14,14 +14,14 @@ def get_next(year, month):
     else:
         return (year, month + 1)
 
-def process( startyear  = 2010,
-             startmonth = 1,
-             endyear    = 2013,
+def process( startyear  = 2015,
+             startmonth = 10,
+             endyear    = 2015,
              endmonth   = 12,
              width      = 10,
              height     = 20,
-             n          = 4,
-             V          = False,
+             n          = 2,
+             V          = True,
              restart    = False ):
     ''' Processes data from FOIL201*/trip_data_*.csv into compressed .npz files.
     
@@ -60,7 +60,8 @@ def process( startyear  = 2010,
         vdata_next_mo = utils.gen_empty_vdata(year=next_year, month=next_month, w=width, h=height, n=n)
         fdata_next_mo = utils.gen_empty_fdata(year=next_year, month=next_month, w=width, h=height, n=n)
         
-        load_filename = "../decompressed/FOIL"+str(year)+"/trip_data_"+str(month)+".csv"
+        #load_filename = "../decompressed/FOIL"+str(year)+"/trip_data_"+str(month)+".csv"
+        load_filename = "../input/nyc-taxi-201510201512/yellow_tripdata_" + str(year) + "-" + str(month) + ".csv"
         #load_filename = "example.csv"
         
         if V:
