@@ -15,7 +15,7 @@ def get_next(year, month):
         return (year, month + 1)
 
 def process( startyear  = 2015,
-             startmonth = 10,
+             startmonth = 1,
              endyear    = 2015,
              endmonth   = 12,
              width      = 10,
@@ -61,7 +61,8 @@ def process( startyear  = 2015,
         # fdata_next_mo = utils.gen_empty_fdata(year=next_year, month=next_month, w=width, h=height, n=n)
         
         #load_filename = "../decompressed/FOIL"+str(year)+"/trip_data_"+str(month)+".csv"
-        load_filename = "../input/yellow_tripdata_" + str(year) + "-" + str(month) + ".csv"
+        load_filename = "../input/yellow_tripdata_" + str(year) + "-" + ('%02d' % month) + ".csv"
+        print('loading: {0}'.format(load_filename))
         #load_filename = "../input/example.csv"
         
         if V:
@@ -149,13 +150,13 @@ if __name__ == '__main__':
     
     # Defaults 
     startyear   = 2015  if args.startyear   is None else args.startyear[0]
-    startmonth  = 10     if args.startmonth  is None else args.startmonth[0]
+    startmonth  = 1     if args.startmonth  is None else args.startmonth[0]
     endyear     = 2015  if args.endyear     is None else args.endyear[0]
     endmonth    = 12    if args.endmonth    is None else args.endmonth[0]
     width       = 10    if args.width       is None else args.width[0]
     height      = 20    if args.height      is None else args.height[0]
     n           = 2     if args.nslotsperhour is None else args.nslotsperhour[0]
-    V = args.verbose
+    V = True
     restart = args.restart
     
     print("NYCDataProcessing/main.py started.")
